@@ -1,0 +1,223 @@
+.app {
+  min-height: 100dvh;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 200;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.main:focus {
+  outline: none;
+}
+
+/* ---------- Sidebar (desktop) ---------- */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: var(--sidebar-width);
+  padding: var(--space-5) var(--space-3);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.brand__name {
+  font-size: var(--text-lg);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.sidebar__nav,
+.bottom-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-weight: 550;
+}
+
+.nav-link:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.nav-link.active {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.sidebar__footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0 var(--space-2);
+}
+
+.sidebar__date {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.demo-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+}
+
+.demo-controls__title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-subtle);
+}
+
+.demo-controls > .btn {
+  margin-left: calc(-1 * var(--space-3));
+}
+
+.demo-controls__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.demo-controls__label {
+  font-weight: 550;
+}
+
+.demo-controls__hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+
+/* ---------- Main ---------- */
+
+.main {
+  margin-left: var(--sidebar-width);
+  padding: var(--space-8);
+}
+
+.main__inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* ---------- Topbar & bottom nav (mobile/tablet) ---------- */
+
+.topbar,
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    height: 56px;
+    padding: 0 var(--space-4);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .topbar .brand {
+    padding: 0;
+  }
+
+  .main {
+    margin-left: 0;
+    padding: var(--space-5) var(--space-4) calc(var(--mobile-nav-height) + var(--space-6));
+  }
+
+  .bottom-nav {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 10;
+    display: block;
+    height: var(--mobile-nav-height);
+    padding-bottom: env(safe-area-inset-bottom);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .bottom-nav__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+  }
+
+  .bottom-nav .nav-link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    height: 100%;
+    border-radius: 0;
+    font-size: var(--text-xs);
+  }
+
+  .bottom-nav .nav-link.active {
+    background: transparent;
+  }
+}

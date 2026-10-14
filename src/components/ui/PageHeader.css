@@ -1,0 +1,34 @@
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.page-header__text {
+  min-width: 0;
+}
+
+.page-header__description {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+.page-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .page-header {
+    margin-bottom: var(--space-4);
+  }
+
+  .page-header__actions {
+    width: 100%;
+  }
+}

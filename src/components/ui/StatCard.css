@@ -1,0 +1,120 @@
+.stat-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+}
+
+.stat-card__icon--neutral {
+  background: var(--color-neutral-soft);
+  color: var(--color-neutral);
+}
+
+.stat-card__icon--info {
+  background: var(--color-info-soft);
+  color: var(--color-info);
+}
+
+.stat-card__icon--warning {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.stat-card__icon--success {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.stat-card__icon--danger {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.stat-card__icon--primary {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.stat-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-card__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.stat-card__value {
+  font-size: var(--text-2xl);
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.stat-card__hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+
+.skeleton {
+  display: block;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-muted) 25%,
+    var(--color-border) 50%,
+    var(--color-surface-muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+.skeleton--line {
+  height: 12px;
+  margin: 4px 0;
+}
+
+.skeleton--title {
+  height: 24px;
+  margin-top: 4px;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .stat-card {
+    padding: var(--space-3);
+  }
+
+  .stat-card__icon {
+    display: none;
+  }
+
+  .stat-card__value {
+    font-size: var(--text-xl);
+  }
+}
