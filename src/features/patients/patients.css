@@ -1,0 +1,253 @@
+/* ---------- Patient list ---------- */
+
+.patient-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.patient-list li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+.patient-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  color: inherit;
+}
+
+.patient-row:hover {
+  background: var(--color-surface-muted);
+}
+
+.patient-row.is-selected {
+  background: var(--color-primary-soft);
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
+.patient-row__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.patient-row__name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.patient-row__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+/* ---------- Patient picker ---------- */
+
+.patient-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.patient-picker > .search-input {
+  width: 100%;
+}
+
+.patient-picker__results {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.patient-picker__list {
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+}
+
+.patient-option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.patient-option:hover {
+  background: var(--color-surface-muted);
+}
+
+.patient-option .avatar {
+  grid-row: span 2;
+  align-self: center;
+}
+
+.patient-option__name {
+  font-weight: 600;
+}
+
+.patient-option__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.patient-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+}
+
+.patient-chip__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.patient-chip__name {
+  font-weight: 600;
+}
+
+/* ---------- Patient profile ---------- */
+
+.back-link {
+  display: none;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 550;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.profile__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.profile__title {
+  flex: 1;
+  min-width: 160px;
+}
+
+.profile__title h2 {
+  font-size: var(--text-xl);
+}
+
+.profile__actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.info-grid dd {
+  overflow-wrap: anywhere;
+}
+
+.info-grid a svg {
+  vertical-align: -2px;
+}
+
+.text-danger {
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+/* ---------- Visit history ---------- */
+
+.visit-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visit {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  flex-wrap: wrap;
+}
+
+.visit + .visit {
+  border-top: 1px solid var(--color-border);
+}
+
+.visit__main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.visit__main:hover .visit__title {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.visit__date {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-subtle);
+}
+
+.visit__title {
+  font-weight: 600;
+}
+
+.visit__aside {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .visit {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .profile__actions {
+    width: 100%;
+  }
+
+  .profile__actions .btn {
+    flex: 1;
+  }
+}

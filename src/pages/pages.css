@@ -1,0 +1,115 @@
+/* ---------- Dashboard ---------- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+@media (max-width: 1180px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    gap: var(--space-3);
+  }
+}
+
+/* ---------- Appointments ---------- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- Patients ---------- */
+
+.patients-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.patients-layout__list {
+  position: sticky;
+  top: var(--space-8);
+  max-height: calc(100dvh - 2 * var(--space-8));
+  overflow: hidden;
+}
+
+.patients-layout__list .card__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.list-search {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.list-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.list-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.list-sort .control {
+  width: auto;
+  height: 30px;
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 900px) {
+  .patients-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .patients-layout__list {
+    position: static;
+    max-height: none;
+  }
+
+  /* One pane at a time on small screens: list, or the selected patient. */
+  .patients-layout.has-selection .patients-layout__list,
+  .patients-layout:not(.has-selection) .patients-layout__detail {
+    display: none;
+  }
+
+  .patients-layout .back-link {
+    display: inline-flex;
+  }
+}
